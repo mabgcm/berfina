@@ -16,12 +16,15 @@
     <link rel="stylesheet" href="assets/css/plugins/plugins.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* Subtle glass backdrop on hero headings for readability */
+        /* Subtle unicorn glass backdrop on hero headings for readability */
         .hero-content-2 h2 {
             display: inline-block;
             padding: 12px 18px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(6px);
+            background: linear-gradient(135deg,
+                rgba(255, 182, 193, 0.55),
+                rgba(173, 216, 230, 0.55),
+                rgba(221, 160, 221, 0.55));
+            backdrop-filter: blur(8px);
             border-radius: 8px;
         }
 
@@ -65,6 +68,23 @@
             color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.35);
             font-weight: 600;
+        }
+
+        /* Banner titles with unicorn glass gradient and dark text */
+        .banner-section .banner-content .title {
+            display: inline-block;
+            background: linear-gradient(135deg,
+                rgba(255, 182, 193, 0.55),
+                rgba(173, 216, 230, 0.55),
+                rgba(221, 160, 221, 0.55));
+            backdrop-filter: blur(8px);
+            color: #111;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+        .banner-section .banner-content a {
+            display: block;
+            margin-top: 8px;
         }
     </style>
     <!-- Modernizr JS -->
@@ -137,24 +157,7 @@
         </header>
         <!--Header Mobile section end-->
 
-        <!-- main-search start -->
-        <div class="main-search-active">
-            <div class="sidebar-search-icon">
-                <button class="search-close"><i class="fa fa-times"></i></button>
-            </div>
-            <div class="sidebar-search-input">
-                <form action="#">
-                    <div class="form-search">
-                        <input id="search" class="input-text" value="" placeholder="" type="search">
-                        <button>
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </form>
-                <p class="form-description">Hit enter to search or ESC to close</p>
-            </div>
-        </div>
-        <!-- main-search start -->
+        
 
         <!--slider section start-->
         <div class="hero-section section position-relative">
@@ -215,7 +218,7 @@
                                 <!--Hero Content start-->
                                 <div class="hero-content-2 center">
 
-                                    <h2>Sold Directly from Our Warehouse</h2>
+                                    <h2>Sold Directly from the Importer</h2>
                                     <div class="hero-btn">
                                         <a href="shop.html" class="btn">map to warehouse</a>
                                     </div>
@@ -256,39 +259,106 @@
         </div>
         <!--slider section end-->
 
-        <!-- <div class="banner-section section pt-30">
+        <!-- Banner section start -->
+        <div class="banner-section section pt-30">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="col-lg-5 col-md-12 col-sm-12">
+                        <!-- Single Banner Start -->
                         <div class="single-banner-item mb-30">
                             <div class="banner-image">
                                 <a href="shop.html">
-                                    <img src="./assets/images/banner/banner1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="banner-content">
-                                <h3 class="title">OFFICE <br> FURNITURE</h3>
-                                    <a href="shop.html">SHOP NOW</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="single-banner-item mb-30">
-                            <div class="banner-image">
-                                <a href="shop-left-sidebar.html">
-                                    <img src="./assets/images/banner/banner2.jpg" alt="">
+                                    <img src="./assets/images/nova.jpg" alt="">
                                 </a>
                             </div>
                             <div class="banner-content tr-right">
-                                <h3 class="title">HOME <br> FURNITURE</h3>
+                                <h3 class="title">NOVA</h3>
+                                    <a href="shop.html">GET PRICE</a>
+                            </div>
+                        </div>
+                        <!-- Single Banner End -->
+                    </div>
+                    <div class="col-lg-7 col-md-12 col-sm-12">
+                        <!-- Single Banner Start -->
+                        <div class="single-banner-item mb-30">
+                            <div class="banner-image">
+                                <a href="shop-left-sidebar.html">
+                                    <img src="./assets/images/tokyo.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="banner-content tr-right">
+                                <h3 class="title">TOKYO</h3>
+                                    <a href="shop.html">GET APPOINTMENT</a>
+                            </div>
+                        </div>
+                        <!-- Single Banner End -->
+                    </div>
+                    <div class="col-lg-7 col-md-12 col-sm-12">
+                        <!-- Single Banner Start -->
+                        <div class="single-banner-item mb-30">
+                            <div class="banner-image">
+                                <a href="shop.html">
+                                    <img src="./assets/images/BOHEM.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="banner-content tl-left">
+                                <h3 class="title">BOHEM</h3>
+                                    <a href="shop.html">GET DIRECTIONS</a>
+                            </div>
+                        </div>
+                        <!-- Single Banner End -->
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-sm-12">
+                        <!-- Single Banner Start -->
+                        <div class="single-banner-item mb-30">
+                            <div class="banner-image">
+                                <a href="shop-left-sidebar.html">
+                                    <img src="./assets/images/chester.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="banner-content tl-left">
+                                <h3 class="title">CHESTER</h3>
                                     <a href="shop.html">SHOP NOW</a>
                             </div>
                         </div>
+                        <!-- Single Banner End -->
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
+        <!-- Banner section End -->
 
+        <!--About Us Area Start-->
+        <div class="about-us-area section pt-90 pt-lg-70 pt-md-60 pt-sm-50 pt-xs-45 pb-70 pb-lg-50 pb-md-60 pb-sm-60 pb-xs-50">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-12">
+                        <!--About Us Image Start-->
+                        <div class="about-us-img-wrapper mb-30 mb-xs-15">
+                            <div class="about-us-image img-full">
+                                <a href="#"><img src="./assets/images/warehouse.jpg" alt=""></a>
+                            </div>
+                        </div>
+                        <!--About Us Image End-->
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <!--About Us Content Start-->
+                        <div class="about-us-content pl-30 pl-md-0 pl-sm-0 pl-xs-0">
+                            <h2>Wholesale-Priced Furniture, Direct from the Source</h2>
+                            <h4>
+                            We eliminate showroom costs and unnecessary markups by working directly with trusted producers in Turkey, bringing quality sofa and armchair sets to Toronto at true wholesale prices.
+                            </h4>
+                            <h3>
+                            This direct model is how we deliver real value—and change the price standard in the GTA.
+                            </h3>
+
+                        </div>
+                        <!--About Us Content End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--About Us Area End-->
 
 
         <!-- Banner section start -->
