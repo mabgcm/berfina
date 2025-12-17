@@ -115,6 +115,8 @@ $('.hero-slider').slick({
     infinite: true,
     fade: true,
     dots: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
     prevArrow: '<button class="slick-prev"><i class="fa fa-angle-left"></i></button>',
     nextArrow: '<button class="slick-next"><i class="fa fa-angle-right"></i></button>',
     responsive: [

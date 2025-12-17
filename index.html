@@ -15,6 +15,58 @@
     <link rel="stylesheet" href="assets/css/vendor/helper.css">
     <link rel="stylesheet" href="assets/css/plugins/plugins.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Subtle glass backdrop on hero headings for readability */
+        .hero-content-2 h2 {
+            display: inline-block;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(6px);
+            border-radius: 8px;
+        }
+
+        /* Align hero button under heading for clarity */
+        .hero-content-2 .hero-btn {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .hero-content-2 .hero-btn .btn {
+            margin: 0;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            font-weight: 600;
+        }
+
+        /* Lighten countdown banner background for readability */
+        .countdown-banner {
+            position: relative;
+            overflow: hidden;
+        }
+        .countdown-banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+        }
+        .countdown-banner .sp-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glass button for appointment CTA */
+        .glass-btn {
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            font-weight: 600;
+        }
+    </style>
     <!-- Modernizr JS -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -40,14 +92,14 @@
                             <div class="header-menu-area text-center">
                                 <nav class="main-menu">
                                     <ul>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="contact.html" class="invisible" aria-hidden="true">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
                             <!--Header Menu Area End-->
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-5 col-12">
-                            <p>text</p>
+                            <a href="#get-price" class="btn">Get A Wholesale Price</a>
                         </div>
                     </div>
                 </div>
@@ -63,186 +115,27 @@
                         <div class="col-12">
                             <div class="header-mobile-navigation d-block d-lg-none">
                                 <div class="row align-items-center">
-                                    <div class="col-6 col-md-6">
-                                        <div class="header-logo">
+                                    <div class="col-12 text-center">
+                                        <div class="header-logo d-inline-block">
                                             <a href="index.html">
                                                 <img src="./assets/images/logo.png" class="img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6">
-                                        
+                                    <div class="col-12 text-center">
+                                        <div class="header-right d-inline-block">
+                                            <a href="#get-price" class="btn btn-sm invisible" aria-hidden="true">Get Quote</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!--Mobile Menu start-->
-                    <div class="row">
-                        <div class="col-12 d-flex d-lg-none">
-                            <div class="mobile-menu"></div>
-                        </div>
-                    </div>
-                    <!--Mobile Menu end-->
-
                 </div>
             </div>
         </header>
         <!--Header Mobile section end-->
-
-        <!-- Offcanvas Menu Start -->
-        <div class="offcanvas-mobile-menu d-block d-lg-none" id="offcanvas-mobile-menu">
-            <a href="javascript:void(0)" class="offcanvas-menu-close" id="offcanvas-menu-close-trigger">
-                <i class="fa fa-times"></i>
-            </a>
-
-            <div class="offcanvas-wrapper">
-
-                <div class="offcanvas-inner-content">
-                    <div class="offcanvas-mobile-search-area">
-                        <form action="#">
-                            <input type="search" placeholder="Search ...">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-                    <nav class="offcanvas-navigation">
-                        <ul>
-                            <li class="menu-item-has-children"><a href="#">Home</a>
-                                <ul class="submenu2">
-                                    <li><a href="index.html">Home 01</a></li>
-                                    <li><a href="index-2.html">Home 02</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="#">Shop</a>
-                                <ul class="submenu2">
-                                    <li class="menu-item-has-children"><a href="#">Pages</a>
-                                        <ul class="submenu2">
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="compare.html">Compare</a></li>
-                                            <li><a href="cart.html">Shopping Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="my-account.html">My Account</a></li>
-                                            <li><a href="login-register.html">Login Register</a></li>
-                                            <li><a href="faq.html">Frequently Questions</a></li>
-                                            <li><a href="404.html">Error 404</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="#">Shop Layout</a>
-                                        <ul class="submenu2">
-                                            <li><a href="shop.html">Shop</a></li>
-                                            <li><a href="shop-three-column.html">Shop Three Column</a></li>
-                                            <li><a href="shop-four-column.html">Shop Four Column</a></li>
-                                            <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                            <li><a href="shop-list-nosidebar.html">Shop List No Sidebar</a></li>
-                                            <li><a href="shop-list-left-sidebar.html">Shop List Left Sidebar</a>
-                                            </li>
-                                            <li><a href="shop-list-right-sidebar.html">Shop List Right
-                                                    Sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="#">Product Details</a>
-                                        <ul class="submenu2">
-                                            <li><a href="single-product.html">Single Product</a></li>
-                                            <li><a href="single-product-variable.html">Variable Product</a></li>
-                                            <li><a href="single-product-affiliate.html">Affiliate Product</a>
-                                            </li>
-                                            <li><a href="single-product-group.html">Group Product</a></li>
-                                            <li><a href="single-product-tabstyle-2.html">Product Left Tab</a>
-                                            </li>
-                                            <li><a href="single-product-tabstyle-3.html">Product Right Tab</a>
-                                            </li>
-                                            <li><a href="single-product-gallery-left.html">Product Gallery
-                                                    Left</a></li>
-                                            <li><a href="single-product-gallery-right.html">Product Gallery
-                                                    Right</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="#">Product Details</a>
-                                        <ul class="submenu2">
-                                            <li><a href="single-product-sticky-left.html">Product Sticky
-                                                    Left</a></li>
-                                            <li><a href="single-product-sticky-right.html">Product Sticky
-                                                    Right</a></li>
-                                            <li><a href="single-product-slider-box.html">Product Box Slider</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                </ul>
-                            </li>
-                            <li><a href="shop.html">New Arrivals</a></li>
-                            <li class="menu-item-has-children"><a href="#">Pages</a>
-                                <ul class="submenu2">
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog-two-column.html">Blog Two Column</a></li>
-                                    <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                    <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                    <li><a href="blog-details-gallery.html">Blog Details Gallery</a></li>
-                                    <li><a href="blog-details-audio.html">Blog Details Audio</a></li>
-                                    <li><a href="blog-details-video.html">Blog Details Video</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="contact.html">Contact</a>
-                            </li>
-
-                        </ul>
-                    </nav>
-
-                    <div class="offcanvas-settings">
-                        <nav class="offcanvas-navigation">
-                            <ul>
-                                <li class="menu-item-has-children"><a href="#">MY ACCOUNT </a>
-                                    <ul class="submenu2">
-                                        <li><a href="login-register.html">Login</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="my-account.html">My account</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children"><a href="#">CURRENCY: USD </a>
-                                    <ul class="submenu2">
-                                        <li><a href="javascript:void(0)">€ Euro</a></li>
-                                        <li><a href="javascript:void(0)">$ US Dollar</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children"><a href="#">LANGUAGE: EN-GB </a>
-                                    <ul class="submenu2">
-                                        <li><a href="javascript:void(0)"><img src="./assets/images/icons/en-gb.png" alt=""> English</a></li>
-                                        <li><a href="javascript:void(0)"><img src="./assets/images/icons/de-de.png" alt=""> Germany</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
-                    <div class="offcanvas-widget-area">
-                        <div class="off-canvas-contact-widget">
-                            <div class="header-contact-info">
-                                <ul class="header-contact-info-list">
-                                    <li><i class="ion-android-phone-portrait"></i> <a href="tel://12452456012">(1245) 2456 012 </a></li>
-                                    <li><i class="ion-android-mail"></i> <a href="mailto:info@yourdomain.com">info@yourdomain.com</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--Off Canvas Widget Social Start-->
-                        <div class="off-canvas-widget-social">
-                            <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
-                            <a href="#" title="Youtube"><i class="fa fa-youtube-play"></i></a>
-                            <a href="#" title="Vimeo"><i class="fa fa-vimeo-square"></i></a>
-                        </div>
-                        <!--Off Canvas Widget Social End-->
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- Offcanvas Menu End -->
 
         <!-- main-search start -->
         <div class="main-search-active">
@@ -276,8 +169,33 @@
                                 <!--Hero Content start-->
                                 <div class="hero-content-2 center">
 
-                                    <h2>Creative Design <br> Modern & Exclusive Furniture</h2>
-                                        <a href="shop.html" class="btn">SHOP NOW</a>
+                                    <h2>Curated Best-Selling Sets Only</h2>
+                                    <div class="hero-btn">
+                                        <a href="shop.html" class="btn">see the models</a>
+                                    </div>
+
+                                </div>
+                                <!--Hero Content end-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Hero Item end-->
+
+                <!--Hero Item start-->
+                <div class="hero-item bg-image" data-bg="assets/images/hero/hero-3.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+
+                                <!--Hero Content start-->
+                                <div class="hero-content-2 center">
+
+                                    <h2>Wholesale Prices, No Hidden Costs</h2>
+                                    <div class="hero-btn">
+                                        <a href="shop.html" class="btn">get the prices</a>
+                                    </div>
 
                                 </div>
                                 <!--Hero Content end-->
@@ -297,8 +215,33 @@
                                 <!--Hero Content start-->
                                 <div class="hero-content-2 center">
 
-                                    <h2>Creative Design <br> Modern & Exclusive Furniture</h2>
-                                        <a href="shop.html" class="btn">SHOP NOW</a>
+                                    <h2>Sold Directly from Our Warehouse</h2>
+                                    <div class="hero-btn">
+                                        <a href="shop.html" class="btn">map to warehouse</a>
+                                    </div>
+
+                                </div>
+                                <!--Hero Content end-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Hero Item end-->
+
+                <!--Hero Item start-->
+                <div class="hero-item bg-image" data-bg="assets/images/hero/hero-4.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+
+                                <!--Hero Content start-->
+                                <div class="hero-content-2 center">
+
+                                    <h2>Warehouse-Only Sales</h2>
+                                    <div class="hero-btn">
+                                        <a href="shop.html" class="btn">Book a Visit</a>
+                                    </div>
 
                                 </div>
                                 <!--Hero Content end-->
@@ -313,12 +256,10 @@
         </div>
         <!--slider section end-->
 
-        <!-- Banner section start -->
-        <div class="banner-section section pt-30">
+        <!-- <div class="banner-section section pt-30">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12">
-                        <!-- Single Banner Start -->
                         <div class="single-banner-item mb-30">
                             <div class="banner-image">
                                 <a href="shop.html">
@@ -330,10 +271,8 @@
                                     <a href="shop.html">SHOP NOW</a>
                             </div>
                         </div>
-                        <!-- Single Banner End -->
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
-                        <!-- Single Banner Start -->
                         <div class="single-banner-item mb-30">
                             <div class="banner-image">
                                 <a href="shop-left-sidebar.html">
@@ -345,493 +284,28 @@
                                     <a href="shop.html">SHOP NOW</a>
                             </div>
                         </div>
-                        <!-- Single Banner End -->
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Banner section End -->
+        </div> -->
 
-
-
-
-        <!--Product section start-->
-        <div class="product-section section pt-70 pt-lg-50 pt-md-40 pt-sm-30 pt-xs-20 pb-55 pb-lg-35 pb-md-25 pb-sm-15 pb-xs-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="section-title text-center mb-15">
-                            <h2>Popular Furniture</h2>
-                        </div>
-                        <div class="product-tab mb-50 mb-sm-30 mb-xs-20">
-                            <ul class="nav" role="tablist">
-                                <li role="presentation">
-                                    <button class="active show" type="button" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
-                                        HOME
-                                    </button>
-                                </li>
-                                <li role="presentation">
-                                    <button type="button" id="office-tab" data-bs-toggle="tab" data-bs-target="#office" role="tab" aria-controls="office" aria-selected="false">
-                                        OFFICE
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-content">
-                    <div id="home" class="tab-pane fade active show" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <div class="product-label">
-                                            <span>-20%</span>
-                                        </div>
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-1.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-2.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Stylish Design Chair</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$190.00</span> <span class="main-price discounted">$230.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <div class="product-label">
-                                            <span>-20%</span>
-                                        </div>
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-2.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-3.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Miro Dining Table</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$113.00</span> <span class="main-price discounted">$180.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <div class="product-label">
-                                            <span>-20%</span>
-                                        </div>
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-4.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-1.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Janus Table Lamp</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$86.00</span> <span class="main-price discounted">$150.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-3.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Discus Floor and Table</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$290.00</span> <span class="main-price discounted">$330.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <div class="product-label">
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-5.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-2.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Sled Mini Sideboard</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$90.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <div class="product-label">
-                                            <span class="sale">New</span>
-                                        </div>
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-6.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-4.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Mega 2 Seater Sofa</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$390.00</span> <span class="main-price discounted">$470.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <div class="product-label">
-                                            <span>-20%</span>
-                                        </div>
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-7.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Sentei Pruning Shears</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$65.00</span> </p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <div class="product-label">
-                                            <span>-29%</span>
-                                        </div>
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-8.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-2.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Affordances Side Table</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$170.00</span> <span class="main-price discounted">$280.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-                        </div>
-                    </div>
-                    <div id="office" class="tab-pane" role="tabpanel" aria-labelledby="office-tab" tabindex="0">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-9.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-10.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Normal Dining chair</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$130.00</span> </p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <div class="product-label">
-                                            <span class="sale">Sale</span>
-                                        </div>
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-11.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-12.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Tripod lampshade</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$210.00</span> <span class="main-price discounted">$240.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-10.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-13.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Hot Design Table</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$250.00</span> <span class="main-price discounted">$280.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-14.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Outdoor Lock Chair</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$180.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <div class="product-label">
-                                            <span class="sale">New</span>
-                                        </div>
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-14.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-13.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Classic Chair</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$60.00</span> </p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-15.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-16.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Classic Chair Wodden</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$183.00</span> <span class="main-price discounted">$200.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-10.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Classic Table Wodden</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$290.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <!--  Single Grid product Start -->
-                                <div class="single-grid-product mb-40">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="./assets/images/product/product-16.jpg" class="img-fluid" alt="">
-                                            <img src="./assets/images/product/product-2.jpg" class="img-fluid" alt="">
-                                        </a>
-
-                                        <div class="product-action">
-                                            <ul>
-                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
-                                                <li><a href="#quick-view-modal-container" data-bs-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3 class="title"> <a href="single-product.html">Miniature Almari</a></h3>
-                                        <p class="product-price"><span class="discounted-price">$230.00</span> <span class="main-price discounted">$250.00</span></p>
-                                    </div>
-                                </div>
-                                <!--  Single Grid product End -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-        <!--Product section end-->
 
 
         <!-- Banner section start -->
-        <div class="banner-section section pb-40 pb-sm-30 pb-xs-0">
+        <div class="banner-section section pb-40 pb-sm-30 pb-xs-0" style="margin-top: 100px;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <!-- Single Banner Start -->
-                        <div class="single-banner-item pt-100 pt-md-80 pt-sm-70 pt-xs-50 pb-120 pb-md-100 pb-sm-90 pb-xs-50 mb-30 bg-image" data-bg="./assets/images/banner/banner3.jpg">
+                        <div class="single-banner-item pt-100 pt-md-80 pt-sm-70 pt-xs-50 pb-120 pb-md-100 pb-sm-90 pb-xs-50 mb-30 bg-image countdown-banner" data-bg="./assets/images/banner/banner3.jpg">
                             <div class="sp-banner-content">
-                                <span class="normat-text">DISCOUNTED UP TO 50%</span>
-                                <h2 class="title">Zigzag King Chair</h2>
-                                <span class="normat-text">LIMITED TIME OFEER</span>
+                                <span class="normat-text">SPECIAL DISCOUNT OFFER</span>
+                                <h2 class="title">Nova Set</h2>
+                                <span class="normat-text">LIMITED TIME</span>
                                 <div class="countdown-area">
-                                    <div class="product-countdown" data-countdown="2023/12/01"></div>
+                                    <div class="product-countdown" data-countdown="2025/12/31"></div>
                                 </div>
-                                <a href="shop.html">SHOP NOW</a>
+                                <a href="shop.html">ASK THE PRICE</a>
                             </div>
                         </div>
                         <!-- Single Banner End -->
@@ -853,11 +327,11 @@
                         <!-- Single Feature Start -->
                         <div class="single-feature mb-30">
                             <div class="feature-image">
-                                <img src="./assets/images/icons/feature-1.png" class="img-fluid" alt="">
+                                <img src="./assets/images/icons/feature-1.png" class="img-fluid" alt="Free delivery and Setup">
                             </div>
                             <div class="feature-content">
-                                <h4 class="title">Free home delivery</h4>
-                                <p class="short-desc">Provide free home delivery for the all product over $100 </p>
+                                <h4 class="title">Delivery & Setup (GTA)</h4>
+                                <p class="short-desc">Safe, professional delivery with optional in-home placement across the GTA.</p>
                             </div>
                         </div>
                         <!-- Single Feature End -->
@@ -869,8 +343,8 @@
                                 <img src="./assets/images/icons/feature-2.png" class="img-fluid" alt="">
                             </div>
                             <div class="feature-content">
-                                <h4 class="title">Quality Products</h4>
-                                <p class="short-desc">We ensure the product quality that is our main goal </p>
+                                <h4 class="title">Direct Factory Sourcing</h4>
+                                <p class="short-desc">Selected best-selling sets supplied directly from our Turkish manufacturer.</p>
                             </div>
                         </div>
                         <!-- Single Feature End -->
@@ -882,8 +356,8 @@
                                 <img src="./assets/images/icons/feature-3.png" class="img-fluid" alt="">
                             </div>
                             <div class="feature-content">
-                                <h4 class="title">3 Days Return</h4>
-                                <p class="short-desc">Provide free home delivery for the all product over $100 </p>
+                                <h4 class="title">Design Guidance</h4>
+                                <p class="short-desc">Practical recommendations based on your space, layout, and preferred model.</p>
                             </div>
                         </div>
                         <!-- Single Feature End -->
@@ -893,78 +367,6 @@
             </div>
         </div>
         <!--Features section end-->
-
-
-
-        <!--Blog section start-->
-        <div class="blog-section section pt-65 pt-lg-45 pt-md-35 pt-sm-20 pt-xs-15 pb-65 pb-lg-45 pb-md-35 pb-sm-25 pb-xs-15">
-            <div class="container">
-
-                <div class="row mb-50 mb-xs-20">
-                    <div class="col">
-                        <div class="section-title text-center">
-                            <h2>Latest Post From Blog</h2>
-                            <span>OUR BLOG POST</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="blog col-lg-4 col-md-6">
-                        <div class="blog-inner mb-30">
-                            <div class="blog-media"><a href="blog-details.html" class="image"><img src="assets/images/blog/blog-1.jpg" alt=""></a></div>
-                            <div class="content">
-                                <ul class="meta">
-                                    <li>08 April, 2019</li>
-                                    <li><a href="#">25 Likes</a></li>
-                                    <li><a href="#">28 Views</a></li>
-                                </ul>
-                                <h3 class="title"><a href="blog-details.html">Latest Fashion Trend for Women
-                                        new trens, new fashion</a></h3>
-                                <a class="read-more" href="blog-details.html">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="blog col-lg-4 col-md-6">
-                        <div class="blog-inner mb-30">
-                            <div class="blog-media"><a href="blog-details.html" class="image"><img src="assets/images/blog/blog-2.jpg" alt=""></a></div>
-                            <div class="content">
-                                <ul class="meta">
-                                    <li>06 April, 2019</li>
-                                    <li><a href="#">42 Likes</a></li>
-                                    <li><a href="#">18 Views</a></li>
-                                </ul>
-                                <h3 class="title"><a href="blog-details.html">Latest Fashion Trend for Women
-                                        new trens, new fashion</a></h3>
-                                <a class="read-more" href="blog-details.html">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="blog col-lg-4 col-md-6">
-                        <div class="blog-inner mb-30">
-                            <div class="blog-media"><a href="blog-details.html" class="image"><img src="assets/images/blog/blog-3.jpg" alt=""></a></div>
-                            <div class="content">
-                                <ul class="meta">
-                                    <li>02 April, 2019</li>
-                                    <li><a href="#">20 Likes</a></li>
-                                    <li><a href="#">78 Views</a></li>
-                                </ul>
-                                <h3 class="title"><a href="blog-details.html">Latest Fashion Trend for Women
-                                        new trens, new fashion</a></h3>
-                                <a class="read-more" href="blog-details.html">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-        <!--Blog section end-->
-
 
         <!-- Testimonial Area Start -->
         <div class="testimonial-section section pb-80 pb-lg-60 pb-md-50 pb-sm-40 pb-xs-40">
@@ -988,16 +390,16 @@
                                                             <div class="testimonial-inner">
                                                                 <div class="testimonial-author">
                                                                     <div class="author-thumb">
-                                                                        <img src="assets/images/author/author-1.png" alt="">
+                                                                        <img src="assets/images/author/author2.jpg" alt="">
                                                                     </div>
                                                                     <div class="author-info">
-                                                                        <h4>Zeniyea Henderson</h4>
-                                                                        <span>CTO & CO Founder, Axels</span>
+                                                                        <h4>Elena</h4>
+                                                                        <span>Vaughan</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="testimonial-description">
                                                                     <blockquote class="testimonials-text">
-                                                                        <p>“I am very much happy to buy product from nelson, the provide the best quality of product. Product quality is very satisfactory. Also the creative design of their Furniture make me happy.”</p>
+                                                                        <p>“I liked that they only carry a few models instead of pushing hundreds. We booked a warehouse visit, confirmed the set we wanted, and had it delivered the same week. Very straightforward.”</p>
                                                                     </blockquote>
                                                                 </div>
                                                             </div>
@@ -1017,16 +419,16 @@
                                                             <div class="testimonial-inner">
                                                                 <div class="testimonial-author">
                                                                     <div class="author-thumb">
-                                                                        <img src="assets/images/author/author-1.png" alt="">
+                                                                        <img src="assets/images/author/author3.jpg" alt="">
                                                                     </div>
                                                                     <div class="author-info">
-                                                                        <h4>Zeniyea Henderson</h4>
-                                                                        <span>CTO & CO Founder, Axels</span>
+                                                                        <h4>Mark</h4>
+                                                                        <span>Thornhill</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="testimonial-description">
                                                                     <blockquote class="testimonials-text">
-                                                                        <p>“I am very much happy to buy product from nelson, the provide the best quality of product. Product quality is very satisfactory. Also the creative design of their Furniture make me happy.”</p>
+                                                                        <p>“We were looking for a sofa set without showroom prices. Berfina explained the options clearly, showed us the available models, and everything matched what we agreed on. Smooth process from start to delivery.”</p>
                                                                     </blockquote>
                                                                 </div>
                                                             </div>
@@ -1045,108 +447,94 @@
         </div>
         <!-- Testimonial Area End -->
 
-
-
-        <!--Brand section start-->
-        <div class="brand-section section pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
+        <!-- Appointment Form Start -->
+        <div class="checkout-section section pt-90 pt-lg-70 pt-md-60 pt-sm-50 pt-xs-40  pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20">
             <div class="container">
                 <div class="row">
-                    <div class="brand-slider section">
-                        <div class="col">
-                            <!-- Single Brand Start -->
-                            <div class="single-brand">
-                                <div class="brand-image">
-                                    <img src="./assets/images/brands/brand-1.png" alt="">
+                    <div class="col-12">
+
+                        <form action="#" class="checkout-form">
+                            <div class="row row-40">
+                                <div class="col-lg-8">
+                                    <div class="mb-10">
+                                        <h4 class="checkout-title">Book an Appointment</h4>
+
+                                        <div class="row">
+
+                                            <div class="col-md-6 col-12 mb-20">
+                                                <label>First Name*</label>
+                                                <input type="text" placeholder="First Name" required>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-20">
+                                                <label>Last Name*</label>
+                                                <input type="text" placeholder="Last Name" required>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-20">
+                                                <label>Email Address</label>
+                                                <input type="email" placeholder="Email Address">
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-20">
+                                                <label>Phone*</label>
+                                                <input type="text" placeholder="Phone number" required>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-20">
+                                                <label>Preferred Date</label>
+                                                <input type="date">
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-20">
+                                                <label>Preferred Time</label>
+                                                <input type="time">
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-20">
+                                                <label>Location</label>
+                                                <select class="nice-select">
+                                                    <option selected>Warehouse Visit</option>
+                                                    <option>Virtual Call</option>
+                                                    <option>Phone Call</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-20">
+                                                <label>Interest</label>
+                                                <select class="nice-select">
+                                                    <option selected>Sofa + Armchair Set</option>
+                                                    <option>Sofa Only</option>
+                                                    <option>Armchair Only</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-12 mb-20">
+                                                <label>Notes</label>
+                                                <input type="text" placeholder="Share delivery timing or model interest">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="checkout-cart-total">
+                                        <h4 class="checkout-title">What to Expect</h4>
+                                        <p>We’ll confirm your appointment, share current wholesale availability, and prepare options before the call.</p>
+                                        <button class="btn mt-20 glass-btn" type="submit">Get Appointment</button>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- Single Brand End -->
-                        </div>
-                        <div class="col">
-                            <!-- Single Brand Start -->
-                            <div class="single-brand">
-                                <div class="brand-image">
-                                    <img src="./assets/images/brands/brand-2.png" alt="">
-                                </div>
-                            </div>
-                            <!-- Single Brand End -->
-                        </div>
-                        <div class="col">
-                            <!-- Single Brand Start -->
-                            <div class="single-brand">
-                                <div class="brand-image">
-                                    <img src="./assets/images/brands/brand-3.png" alt="">
-                                </div>
-                            </div>
-                            <!-- Single Brand End -->
-                        </div>
-                        <div class="col">
-                            <!-- Single Brand Start -->
-                            <div class="single-brand">
-                                <div class="brand-image">
-                                    <img src="./assets/images/brands/brand-4.png" alt="">
-                                </div>
-                            </div>
-                            <!-- Single Brand End -->
-                        </div>
-                        <div class="col">
-                            <!-- Single Brand Start -->
-                            <div class="single-brand">
-                                <div class="brand-image">
-                                    <img src="./assets/images/brands/brand-5.png" alt="">
-                                </div>
-                            </div>
-                            <!-- Single Brand End -->
-                        </div>
-                        <div class="col">
-                            <!-- Single Brand Start -->
-                            <div class="single-brand">
-                                <div class="brand-image">
-                                    <img src="./assets/images/brands/brand-1.png" alt="">
-                                </div>
-                            </div>
-                            <!-- Single Brand End -->
-                        </div>
-                        <div class="col">
-                            <!-- Single Brand Start -->
-                            <div class="single-brand">
-                                <div class="brand-image">
-                                    <img src="./assets/images/brands/brand-2.png" alt="">
-                                </div>
-                            </div>
-                            <!-- Single Brand End -->
-                        </div>
-                        <div class="col">
-                            <!-- Single Brand Start -->
-                            <div class="single-brand">
-                                <div class="brand-image">
-                                    <img src="./assets/images/brands/brand-3.png" alt="">
-                                </div>
-                            </div>
-                            <!-- Single Brand End -->
-                        </div>
-                        <div class="col">
-                            <!-- Single Brand Start -->
-                            <div class="single-brand">
-                                <div class="brand-image">
-                                    <img src="./assets/images/brands/brand-4.png" alt="">
-                                </div>
-                            </div>
-                            <!-- Single Brand End -->
-                        </div>
-                        <div class="col">
-                            <!-- Single Brand Start -->
-                            <div class="single-brand">
-                                <div class="brand-image">
-                                    <img src="./assets/images/brands/brand-5.png" alt="">
-                                </div>
-                            </div>
-                            <!-- Single Brand End -->
-                        </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
-        <!--Brand section end-->
+        <!-- Appointment Form End -->
+
 
         <!-- Newsletter Section Start -->
         <div class="newsletter-section section bg-gray-two pt-100 pt-lg-80 pt-md-70 pt-sm-60 pt-xs-50 pb-95 pb-lg-75 pb-md-65 pb-sm-60 pb-xs-50">
@@ -1245,7 +633,7 @@
                             <div class="row justify-content-between align-items-center">
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="copyright text-start">
-                                        <p class="copyright">&copy; 2021 <strong>Nelson</strong> Made with <i class="fa fa-heart text-danger" aria-hidden="true"></i> by <a href="https://hasthemes.com/"><strong>HasThemes</strong></a>.</p>
+                                        <p class="copyright">&copy; 2026 <strong>Berfina</strong> </p>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -1262,116 +650,6 @@
 
         </footer>
         <!--Footer section end-->
-        <!-- Modal Area Strat -->
-        <div class="modal fade quick-view-modal-container" id="quick-view-modal-container" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-6">
-                                    <!-- Product Details Left -->
-                                    <div class="product-details-left">
-                                        <div class="product-details-images">
-                                            <div class="lg-image">
-                                                <img src="./assets/images/product/large-product/l-product-1.jpg" alt="">
-                                            </div>
-                                            <div class="lg-image">
-                                                <img src="./assets/images/product/large-product/l-product-2.jpg" alt="">
-                                            </div>
-                                            <div class="lg-image">
-                                                <img src="./assets/images/product/large-product/l-product-3.jpg" alt="">
-                                            </div>
-                                            <div class="lg-image">
-                                                <img src="./assets/images/product/large-product/l-product-4.jpg" alt="">
-                                            </div>
-                                            <div class="lg-image">
-                                                <img src="./assets/images/product/large-product/l-product-5.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="product-details-thumbs">
-                                            <div class="sm-image"><img src="./assets/images/product/small-product/s-product-1.jpg" alt="product image thumb"></div>
-                                            <div class="sm-image"><img src="./assets/images/product/small-product/s-product-2.jpg" alt="product image thumb"></div>
-                                            <div class="sm-image"><img src="./assets/images/product/small-product/s-product-3.jpg" alt="product image thumb"></div>
-                                            <div class="sm-image"><img src="./assets/images/product/small-product/s-product-4.jpg" alt="product image thumb"></div>
-                                            <div class="sm-image"><img src="./assets/images/product/small-product/s-product-5.jpg" alt="product image thumb"></div>
-                                        </div>
-                                    </div>
-                                    <!--Product Details Left -->
-                                </div>
-                                <div class="col-lg-8 col-md-6">
-                                    <!--Product Details Content Start-->
-                                    <div class="product-details-content">
-                                        <!--Product Nav Start-->
-                                        <div class="product-nav">
-                                            <a href="#"><i class="fa fa-angle-left"></i></a>
-                                            <a href="#"><i class="fa fa-angle-right"></i></a>
-                                        </div>
-                                        <!--Product Nav End-->
-                                        <h2>Aliquam lobortis est turpis mauris egestas eget</h2>
-                                        <div class="single-product-reviews">
-                                            <i class="fa fa-star active"></i>
-                                            <i class="fa fa-star active"></i>
-                                            <i class="fa fa-star active"></i>
-                                            <i class="fa fa-star active"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <a class="review-link" href="#">(1 customer review)</a>
-                                        </div>
-                                        <div class="single-product-price">
-                                            <span class="price new-price">$66.00</span>
-                                            <span class="regular-price">$77.00</span>
-                                        </div>
-                                        <div class="product-description">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus</p>
-                                        </div>
-                                        <div class="single-product-quantity">
-                                            <form class="add-quantity" action="#">
-                                                <div class="product-quantity">
-                                                    <input value="1" type="number">
-                                                </div>
-                                                <div class="add-to-link">
-                                                    <button class="btn"><i class="ion-bag"></i>add to cart</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="wishlist-compare-btn">
-                                            <a href="#" class="wishlist-btn">Add to Wishlist</a>
-                                            <a href="#" class="add-compare">Compare</a>
-                                        </div>
-                                        <div class="product-meta">
-                                            <span class="posted-in">
-                                            Categories: 
-                                            <a href="#">Accessories</a>,
-                                            <a href="#">Electronics</a>
-                                        </span>
-                                        </div>
-                                        <div class="single-product-sharing">
-                                            <h3>Share this product</h3>
-                                            <ul>
-                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!--Product Details Content End-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- Modal Area End -->
     </div>
 
     <!-- Placed js at the end of the document so the pages load faster -->
