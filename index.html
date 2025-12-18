@@ -156,7 +156,7 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-5 col-12">
                             <div class="d-flex gap-2">
-                                <a href="https://wa.me/16478745060" class="btn">Get Price</a>
+                                <a href="https://wa.me/14376846565" class="btn" target="_blank" rel="noopener">Get Price</a>
                             </div>
                         </div>
                     </div>
@@ -182,7 +182,7 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                                     </div>
                                     <div class="col-12 text-center">
                                         <div class="header-right d-inline-block">
-                                            <a href="https://wa.me/16478745060" class="btn btn-sm mt-2">Get Price</a>
+                                            <a href="https://wa.me/14376846565" class="btn btn-sm mt-2" target="_blank" rel="noopener">Get Price</a>
                                         </div>
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
 
                                     <h2>Curated Best-Selling Sets Only</h2>
                                     <div class="hero-btn">
-                                        <a href="https://www.google.com/maps?q=Berfina+Furniture,+700+Flint+Rd,+Toronto,+ON+M3J+2J5" class="btn">touch the quality</a>
+                                        <a href="https://www.google.com/maps?q=Berfina+Furniture,+700+Flint+Rd,+Toronto,+ON+M3J+2J5" class="btn" target="_blank" rel="noopener">touch the quality</a>
                                     </div>
 
                                 </div>
@@ -235,7 +235,7 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
 
                                     <h2>Wholesale Prices for Everyone</h2>
                                     <div class="hero-btn">
-                                        <a href="https://wa.me/16478745060" class="btn">get the prices</a>
+                                        <a href="https://wa.me/14376846565" class="btn" target="_blank" rel="noopener">get the prices</a>
                                     </div>
 
                                 </div>
@@ -397,7 +397,7 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                                 <div class="countdown-area">
                                     <div class="product-countdown" data-countdown="2025/12/31"></div>
                                 </div>
-                                <a href="https://wa.me/16478745060">ASK THE PRICE</a>
+                                <a href="https://wa.me/14376846565" target="_blank" rel="noopener">ASK THE PRICE</a>
                             </div>
                         </div>
                         <!-- Single Banner End -->
@@ -690,7 +690,7 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                         <div class="footer-widget text-lg-end text-start col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-40 mb-xs-35">
                             <h2>700 Flint Rd, Toronto, M3J 2J5</h2>
                             <p class="contact-text">berfinafurniture@gmail.com</p>
-                            <p class="contact-text">(647) 874-5060</p>
+                            <p class="contact-text">(437) 684-6565</p>
                         </div>
                         <!--Footer Widget end-->
                     </div>
@@ -783,6 +783,100 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
             });
         })();
     </script>
+
+    <script>
+  (function () {
+    function safeFbq() {
+      return (typeof window.fbq === 'function');
+    }
+
+    // Track important link/button clicks in one place
+    document.addEventListener('click', function (e) {
+      var el = e.target && e.target.closest ? e.target.closest('a,button') : null;
+      if (!el || !safeFbq()) return;
+
+      var tag = (el.tagName || '').toLowerCase();
+      var text = (el.innerText || el.value || '').trim().slice(0, 80);
+
+      // If it's a link
+      if (tag === 'a') {
+        var href = el.getAttribute('href') || '';
+
+        // WhatsApp clicks
+        if (href.indexOf('wa.me/') !== -1) {
+          fbq('trackCustom', 'WhatsAppClick', {
+            button_text: text,
+            href: href
+          });
+          return;
+        }
+
+        // Google Maps / location click
+        if (href.indexOf('google.com/maps') !== -1 || href.indexOf('maps.google.com') !== -1) {
+          fbq('track', 'FindLocation', {
+            button_text: text,
+            href: href
+          });
+          return;
+        }
+
+        // Scroll to form (anchor)
+        if (href === '#form' || href.indexOf('#form') !== -1) {
+          fbq('trackCustom', 'ScrollToForm', { button_text: text });
+          return;
+        }
+
+        // Any other link
+        fbq('trackCustom', 'OutboundClick', { button_text: text, href: href });
+        return;
+      }
+
+      // If it's a button
+      if (tag === 'button') {
+        // Appointment submit button
+        if (el.type === 'submit' && el.closest && el.closest('#appointment-form')) {
+          fbq('trackCustom', 'AppointmentSubmitClick', { button_text: text });
+          return;
+        }
+
+        // Newsletter subscribe
+        if (el.type === 'submit' && el.closest && el.closest('#mc-form')) {
+          fbq('trackCustom', 'NewsletterSubmitClick', { button_text: text });
+          return;
+        }
+
+        fbq('trackCustom', 'ButtonClick', { button_text: text });
+      }
+    });
+
+    // Track the *real conversion* only when appointment is successfully sent
+    var form = document.getElementById('appointment-form');
+    if (form) {
+      form.addEventListener('submit', function () {
+        // don't track Lead here (yet) because submit could fail
+      }, true);
+    }
+
+    // Hook into your existing success message node:
+    // When it says "Appointment request sent successfully." we fire Lead once.
+    var status = document.getElementById('appointment-status');
+    if (status) {
+      var last = '';
+      setInterval(function () {
+        var now = (status.textContent || '').trim();
+        if (!now || now === last) return;
+        last = now;
+
+        if (safeFbq() && now.toLowerCase().indexOf('sent successfully') !== -1) {
+          fbq('track', 'Lead', {
+            source: 'appointment_form'
+          });
+        }
+      }, 400);
+    }
+  })();
+</script>
+
 
 </body>
 
