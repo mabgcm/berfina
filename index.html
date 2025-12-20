@@ -797,6 +797,11 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
 
       var tag = (el.tagName || '').toLowerCase();
       var text = (el.innerText || el.value || '').trim().slice(0, 80);
+      const ctaText = (el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+      var ctaHref = tag === 'a' ? (el.href || '') : '';
+      var ctaTag = el.tagName || '';
+      var ctaId = el.id || '';
+      var pagePath = location.pathname;
 
       // If it's a link
       if (tag === 'a') {
@@ -806,7 +811,12 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
         if (href.indexOf('wa.me/') !== -1) {
           fbq('trackCustom', 'WhatsAppClick', {
             button_text: text,
-            href: href
+            href: href,
+            cta_text: ctaText,
+            cta_href: ctaHref,
+            cta_tag: ctaTag,
+            cta_id: ctaId,
+            page_path: pagePath
           });
           return;
         }
@@ -822,12 +832,27 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
 
         // Scroll to form (anchor)
         if (href === '#form' || href.indexOf('#form') !== -1) {
-          fbq('trackCustom', 'ScrollToForm', { button_text: text });
+          fbq('trackCustom', 'ScrollToForm', {
+            button_text: text,
+            cta_text: ctaText,
+            cta_href: ctaHref,
+            cta_tag: ctaTag,
+            cta_id: ctaId,
+            page_path: pagePath
+          });
           return;
         }
 
         // Any other link
-        fbq('trackCustom', 'OutboundClick', { button_text: text, href: href });
+        fbq('trackCustom', 'OutboundClick', {
+          button_text: text,
+          href: href,
+          cta_text: ctaText,
+          cta_href: ctaHref,
+          cta_tag: ctaTag,
+          cta_id: ctaId,
+          page_path: pagePath
+        });
         return;
       }
 
@@ -835,17 +860,38 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
       if (tag === 'button') {
         // Appointment submit button
         if (el.type === 'submit' && el.closest && el.closest('#appointment-form')) {
-          fbq('trackCustom', 'AppointmentSubmitClick', { button_text: text });
+          fbq('trackCustom', 'AppointmentSubmitClick', {
+            button_text: text,
+            cta_text: ctaText,
+            cta_href: ctaHref,
+            cta_tag: ctaTag,
+            cta_id: ctaId,
+            page_path: pagePath
+          });
           return;
         }
 
         // Newsletter subscribe
         if (el.type === 'submit' && el.closest && el.closest('#mc-form')) {
-          fbq('trackCustom', 'NewsletterSubmitClick', { button_text: text });
+          fbq('trackCustom', 'NewsletterSubmitClick', {
+            button_text: text,
+            cta_text: ctaText,
+            cta_href: ctaHref,
+            cta_tag: ctaTag,
+            cta_id: ctaId,
+            page_path: pagePath
+          });
           return;
         }
 
-        fbq('trackCustom', 'ButtonClick', { button_text: text });
+        fbq('trackCustom', 'ButtonClick', {
+          button_text: text,
+          cta_text: ctaText,
+          cta_href: ctaHref,
+          cta_tag: ctaTag,
+          cta_id: ctaId,
+          page_path: pagePath
+        });
       }
     });
 
