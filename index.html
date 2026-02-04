@@ -129,6 +129,145 @@
             70% { transform: scale(1.08); box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
         }
+
+        /* Side slide gallery */
+        .side-slider {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .side-slider.is-open {
+            pointer-events: auto;
+        }
+        .side-slider-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            opacity: 0;
+            transition: opacity 240ms ease;
+        }
+        .side-slider.is-open .side-slider-backdrop {
+            opacity: 1;
+        }
+        .side-slider-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 100vw;
+            background: #111;
+            color: #fff;
+            transform: translateX(100%);
+            transition: transform 260ms ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -12px 0 30px rgba(0, 0, 0, 0.4);
+        }
+        .side-slider.is-open .side-slider-panel {
+            transform: translateX(0);
+        }
+        .side-slider-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+            border: 0;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            font-size: 20px;
+            line-height: 1;
+        }
+        .side-slider-header {
+            padding: 20px 56px 12px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .side-slider-title {
+            margin: 0;
+            font-size: 18px;
+            letter-spacing: 0.04em;
+        }
+        .side-slider-body {
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 10px 0 6px;
+        }
+        .side-slider-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 260ms ease;
+        }
+        .side-slider-slide {
+            flex: 0 0 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+        }
+        .side-slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #0b0b0b;
+        }
+        .side-slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border: 0;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            font-size: 22px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .side-slider-nav.prev { left: 10px; }
+        .side-slider-nav.next { right: 10px; }
+        .side-slider-thumbs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px 18px;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+        .side-slider-thumb {
+            width: 64px;
+            height: 64px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            padding: 0;
+            background: #1a1a1a;
+            flex: 0 0 auto;
+        }
+        .side-slider-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+        .side-slider-thumb.is-active {
+            border-color: #fff;
+        }
+        @media (max-width: 575px) {
+            .side-slider-panel {
+                width: 100vw;
+            }
+        }
     </style>
     <!-- Modernizr JS -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -242,9 +381,8 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                                 <!--Hero Content start-->
                                 <div class="hero-content-2 center">
 
-                                    <h2>Visit our Toronto showroom today</h2>
-                                    <p class="hero-price">From $2,399</p>
-                                    <p class="hero-sub">Warehouse-only pricing</p>
+                                    <h2>Visit our Toronto showroom today</h2> <br>
+                                    <p class="hero-price">From $2,399/set</p>
                                     <div class="hero-btn">
                                         <a href="https://www.google.com/maps?q=Berfina+Furniture,+134+Martin+Ross+Ave,+North+York,+ON+M3J+2L4" class="btn" target="_blank" rel="noopener">Get Directions</a>
                                     </div>
@@ -267,9 +405,8 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                                 <!--Hero Content start-->
                                 <div class="hero-content-2 center">
 
-                                    <h2>Premium Turkish sofa sets in stock</h2>
-                                    <p class="hero-price">From $2,399</p>
-                                    <p class="hero-sub">Message us for colors, sizes & availability</p>
+                                    <h2>Warehouse Open to Public</h2> <br>
+                                    <p class="hero-price">From $2,399/set</p>
                                     <div class="hero-btn">
                                         <a href="https://wa.me/14376846565" class="btn" target="_blank" rel="noopener">Message Us</a>
                                     </div>
@@ -292,9 +429,8 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                                 <!--Hero Content start-->
                                 <div class="hero-content-2 center">
 
-                                    <h2>Upgrade your living room for less</h2>
-                                    <p class="hero-price">From $2,399</p>
-                                    <p class="hero-sub">Limited stock <br> Fast pickup options</p>
+                                    <h2>Wholesale Prices for Retail</h2> <br>
+                                    <p class="hero-price">From $2,399/set</p>
                                     <div class="hero-btn">
                                         <a href="#form" class="btn">Request a Quote</a>
                                     </div>
@@ -317,9 +453,8 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                                 <!--Hero Content start-->
                                 <div class="hero-content-2 center">
 
-                                    <h2>Warehouse-only prices. See quality in person</h2>
-                                    <p class="hero-price">From $2,399</p>
-                                    <p class="hero-sub">Visit the warehouse showroom in Toronto</p>
+                                    <h2>Warehouse-only prices <br> See quality in person</h2> <br>
+                                    <p class="hero-price">From $2,399/set</p>
                                     <div class="hero-btn">
                                         <a href="#form" class="btn">Request a Quote</a>
                                     </div>
@@ -345,16 +480,12 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                         <!-- Single Banner Start -->
                         <div class="single-banner-item mb-30">
                             <div class="banner-image">
-                                <a>
+                                <a href="#" class="js-banner-gallery" data-title="STELLA" data-images="./assets/images/stella1.jpg,./assets/images/stella2.jpg,./assets/images/stella3.jpg,./assets/images/stella4.jpg,./assets/images/stella5.jpg,./assets/images/stella6.jpg, ./assets/images/stella7.jpeg,./assets/images/stella8.jpeg,">
                                     <img src="./assets/images/stella.jpg" alt="">
                                 </a>
                             </div>
                             <div class="banner-content tr-right">
                                 <h3 class="title">STELLA</h3>
-                                <!-- <div style="margin-top: 6px;">
-                                    <a href="https://wa.me/14376846565" style="color: #c00000; font-weight: 700; font-size: 12px; background: #ffffff; padding: 2px 8px; border-radius: 4px; display: inline-block; text-decoration: none; animation: stock-pulse 1.2s infinite;">Check Stock Availability</a>
-                                </div> -->
-
                             </div>
                         </div>
                         <!-- Single Banner End -->
@@ -363,7 +494,7 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                         <!-- Single Banner Start -->
                         <div class="single-banner-item mb-30">
                             <div class="banner-image">
-                                <a>
+                                <a href="#" class="js-banner-gallery" data-title="MONDO" data-images="./assets/images/mondo1.jpg,./assets/images/mondo2.jpg,./assets/images/mondo3.jpg,./assets/images/mondo4.jpg,./assets/images/mondo5.jpg,./assets/images/mondo6.jpg,./assets/images/mondo7.jpg">
                                     <img src="./assets/images/mondo.jpg" alt="">
                                 </a>
                             </div>
@@ -381,7 +512,7 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
                         <!-- Single Banner Start -->
                         <div class="single-banner-item mb-30">
                             <div class="banner-image">
-                                <a>
+                                <a href="#" class="js-banner-gallery" data-title="MABEL" data-images="./assets/images/mabel1.png,./assets/images/mabel2.png,./assets/images/mabel3.png,./assets/images/mabel4.png,./assets/images/mabel5.png,./assets/images/mabel6.png,./assets/images/mabel7.png,./assets/images/mabel8.png,./assets/images/mabel9.png">
                                     <img src="./assets/images/chester.jpg" alt="">
                                 </a>
                             </div>
@@ -767,6 +898,23 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
         <!--Footer section end-->
     </div>
 
+    <!-- Side slide gallery -->
+    <div class="side-slider" id="side-slider" aria-hidden="true">
+        <div class="side-slider-backdrop" data-close></div>
+        <div class="side-slider-panel" role="dialog" aria-modal="true" aria-label="Product gallery">
+            <button class="side-slider-close" type="button" data-close aria-label="Close gallery">&times;</button>
+            <div class="side-slider-header">
+                <h3 class="side-slider-title" id="side-slider-title">Gallery</h3>
+            </div>
+            <div class="side-slider-body">
+                <button class="side-slider-nav prev" type="button" data-prev aria-label="Previous photo">&#8249;</button>
+                <div class="side-slider-track" id="side-slider-track"></div>
+                <button class="side-slider-nav next" type="button" data-next aria-label="Next photo">&#8250;</button>
+            </div>
+            <div class="side-slider-thumbs" id="side-slider-thumbs"></div>
+        </div>
+    </div>
+
     <!-- Placed js at the end of the document so the pages load faster -->
 
     <!-- All jquery file included here -->
@@ -775,6 +923,118 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
     <script src="assets/js/vendor/bootstrap.min.js"></script>
     <script src="assets/js/plugins/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        (function () {
+            var slider = document.getElementById('side-slider');
+            if (!slider) return;
+
+            var track = document.getElementById('side-slider-track');
+            var thumbs = document.getElementById('side-slider-thumbs');
+            var title = document.getElementById('side-slider-title');
+            var btnPrev = slider.querySelector('[data-prev]');
+            var btnNext = slider.querySelector('[data-next]');
+            var closeEls = slider.querySelectorAll('[data-close]');
+
+            var images = [];
+            var index = 0;
+
+            function render() {
+                if (!track) return;
+                track.innerHTML = images.map(function (src) {
+                    return '<div class="side-slider-slide"><img src="' + src + '" alt=""></div>';
+                }).join('');
+
+                if (thumbs) {
+                    thumbs.innerHTML = images.map(function (src, i) {
+                        var active = i === index ? ' is-active' : '';
+                        return '<button class="side-slider-thumb' + active + '" type="button" data-thumb="' + i + '" aria-label="Go to photo ' + (i + 1) + '"><img src="' + src + '" alt=""></button>';
+                    }).join('');
+                }
+
+                update();
+            }
+
+            function update() {
+                if (!track) return;
+                track.style.transform = 'translateX(' + (-index * 100) + '%)';
+                if (thumbs) {
+                    var thumbEls = thumbs.querySelectorAll('.side-slider-thumb');
+                    thumbEls.forEach(function (thumb, i) {
+                        if (i === index) {
+                            thumb.classList.add('is-active');
+                        } else {
+                            thumb.classList.remove('is-active');
+                        }
+                    });
+                }
+            }
+
+            function openSlider(payload) {
+                images = payload.images;
+                index = 0;
+                if (title) title.textContent = payload.title || 'Gallery';
+                render();
+                slider.classList.add('is-open');
+                slider.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeSlider() {
+                slider.classList.remove('is-open');
+                slider.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            function next() {
+                if (!images.length) return;
+                index = (index + 1) % images.length;
+                update();
+            }
+
+            function prev() {
+                if (!images.length) return;
+                index = (index - 1 + images.length) % images.length;
+                update();
+            }
+
+            document.addEventListener('click', function (e) {
+                var trigger = e.target && e.target.closest ? e.target.closest('.js-banner-gallery') : null;
+                if (!trigger) return;
+                e.preventDefault();
+                var list = (trigger.getAttribute('data-images') || '').split(',').map(function (v) { return v.trim(); }).filter(Boolean);
+                if (!list.length) return;
+                openSlider({
+                    title: trigger.getAttribute('data-title') || trigger.textContent.trim(),
+                    images: list
+                });
+            });
+
+            if (btnNext) btnNext.addEventListener('click', next);
+            if (btnPrev) btnPrev.addEventListener('click', prev);
+
+            if (thumbs) {
+                thumbs.addEventListener('click', function (e) {
+                    var thumb = e.target && e.target.closest ? e.target.closest('[data-thumb]') : null;
+                    if (!thumb) return;
+                    index = parseInt(thumb.getAttribute('data-thumb'), 10) || 0;
+                    update();
+                });
+            }
+
+            closeEls.forEach(function (el) {
+                el.addEventListener('click', function () {
+                    closeSlider();
+                });
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (!slider.classList.contains('is-open')) return;
+                if (e.key === 'Escape') closeSlider();
+                if (e.key === 'ArrowRight') next();
+                if (e.key === 'ArrowLeft') prev();
+            });
+        })();
+    </script>
     <script>
         // Appointment form submission via serverless proxy
         (function () {
