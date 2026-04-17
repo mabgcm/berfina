@@ -1230,6 +1230,29 @@ src="https://www.facebook.com/tr?id=896113689654718&ev=PageView&noscript=1"/>
   })();
 </script>
 
+    <script>
+        (function () {
+            var autoOpenUrl = 'https://homedeco-xi.vercel.app/';
+            var autoOpenDelayMs = 3000;
+            var autoOpenSessionKey = 'berfina-auto-opened';
+
+            if (!autoOpenUrl) return;
+
+            window.addEventListener('load', function () {
+                window.setTimeout(function () {
+                    try {
+                        if (window.sessionStorage.getItem(autoOpenSessionKey)) return;
+                        window.sessionStorage.setItem(autoOpenSessionKey, '1');
+                    } catch (e) {
+                        // Ignore storage access issues and still attempt the open.
+                    }
+
+                    window.open(autoOpenUrl, '_blank', 'noopener,noreferrer');
+                }, autoOpenDelayMs);
+            });
+        })();
+    </script>
+
 
 </body>
 
